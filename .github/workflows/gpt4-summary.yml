@@ -1,0 +1,14 @@
+name: Run Hello World script
+on:
+  pull_request:
+    types: [closed]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run script
+        run: |
+          python3 generate_summary.py
+
