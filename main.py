@@ -13,9 +13,9 @@ def name(): #this is called as 'path operation function'
     # is the decorator 
     # we can name two functions with same name 
     # but we can't have two decorators with same name 
-    return {'data': {'name': 'Sushmita'}} #returning a dictionary
+    return {'data': {'name': 'sssss'}} #returning a dictionary 
 
-@app.get('/about') 
+@app.get('/about')    
 def about():
     return {'data': 'about page'}
 
