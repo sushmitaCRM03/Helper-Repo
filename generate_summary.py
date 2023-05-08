@@ -1,5 +1,7 @@
 import argparse
 from github import Github
+import base64
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--token', type=str, help='GitHub token')
@@ -25,6 +27,6 @@ files = pr.get_files()
 
 # Print the contents of each file
 for file in files:
-    contents = file.decoded_content.decode('utf-8')
+    contents = base64.b64decode(file.content).decode('utf-8')
     print(f'Contents of {file.filename}:')
     print(contents)
