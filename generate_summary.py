@@ -27,6 +27,14 @@ files = pr.get_files()
 
 # Print the contents of each file
 for file in files:
-    contents = base64.b64decode(file.content).decode('utf-8')
-    print(f'Contents of {file.filename}:')
-    print(contents)
+    # Get the file name
+    filename = file.filename
+    # Get the file contents
+    contents = repo.get_contents(filename, ref=head_branch).content
+    # Decode the file contents
+    decoded_contents = base64.b64decode(contents)
+    # Print the file contents
+    print(decoded_contents)
+    # Write the file contents to a file
+    with open(os.path.basename(filename), 'wb') as f:
+        f.write(decoded_contents)
