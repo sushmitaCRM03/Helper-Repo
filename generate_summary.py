@@ -21,7 +21,7 @@ pr = repo.get_pull(args.pr)
 head_branch = pr.head.ref
 
 # Get the files changed in the pull request
-files = pr.get_files()
+files = pr.get_files() 
 
 # Print the contents of each file
 for file in files:
