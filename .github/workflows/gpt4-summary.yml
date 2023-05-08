@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install -r requirements.txt
       - name: Generate summary
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
