@@ -12,9 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: pip3 install -r requirements.txt
-
       - name: Generate summary
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
