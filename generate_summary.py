@@ -30,7 +30,7 @@ for file in files:
     # Get the file name
     filename = file.filename
     # Get the file contents
-    contents = repo.get_contents(filename, ref=head_branch).content
+    contents = repo.get_contents(filename, ref=head_branch).content 
     # Decode the file contents
     decoded_contents = base64.b64decode(contents)
     # Print the file contents
