@@ -28,9 +28,10 @@ print(files)
 
 # Print the contents of each file
 for file in files:
+    print(file)
     # Get the file name
     filename = file.filename
-    # Get the file contents
+    print("🚀 ~ file: generate_summary.py:34 ~  file.filename:",  file.filename)
     contents = repo.get_contents(filename, ref=head_branch).content 
     # Decode the file contents
     decoded_contents = base64.b64decode(contents)
