@@ -1,14 +1,21 @@
-name: Run Hello World script
+name: Generate Summary
+
 on:
+  push:
   pull_request:
     types: [closed]
+
 jobs:
-  build:
+  generate-summary:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Run script
-        run: |
-          python3 generate_summary.py
 
+      - name: Install dependencies
+        run: pip3 install -r requirements.txt
+
+      - name: Generate summary
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 generate_summary.py ${{ github.event.pull_request.head.repo.full_name }} ${{ github.event.pull_request.head.ref }}
