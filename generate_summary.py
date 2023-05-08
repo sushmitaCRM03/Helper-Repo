@@ -5,7 +5,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--token', type=str, help='GitHub token')
 parser.add_argument('--repo', type=str, help='GitHub repository name')
 parser.add_argument('--branch', type=str, help='GitHub branch name')
-parser.add_argument('--pr', type=int, help='GitHub pull request number')
+parser.add_argument('--pr', type=int, help='GitHub pull request number') 
 args = parser.parse_args()
 
 # Initialize PyGithub client with the token
