@@ -26,17 +26,18 @@ print (head_branch)
 files = pr.get_files() 
 print(files)
 
-# Print the contents of each file
+# Iterate over the files and get the code changes from pr branch
 for file in files:
     print(file)
-    # Get the file name
-    filename = file.filename
-    print("🚀 ~ file: generate_summary.py:34 ~  file.filename:",  file.filename)
-    contents = repo.get_contents(filename, ref=head_branch).content 
-    # Decode the file contents
-    decoded_contents = base64.b64decode(contents)
-    # Print the file contents
-    print(decoded_contents)
-    # Write the file contents to a file
-    with open(os.path.basename(filename), 'wb') as f:
-        f.write(decoded_contents)
+    # Get the file content from the pr branch
+    file_content = repo.get_contents(file.filename, ref=head_branch).content
+    print(file_content)
+    # Decode the base64 encoded content
+    decoded_content = base64.b64decode(file_content)
+    print(decoded_content)
+    # Create a file in the current directory and write the decoded content
+    with open(os.path.basename(file.filename), 'wb') as f:
+        f.write(decoded_content)
+        print(f)
+        print(os.path.basename(file.filename))
+        print(decoded_content)
