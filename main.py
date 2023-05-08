@@ -15,7 +15,7 @@ def name(): #this is called as 'path operation function'
     # but we can't have two decorators with same name 
     return {'data': {'name': 'Sushmita'}} #returning a dictionary
 
-@app.get('/about')
+@app.get('/about') 
 def about():
     return {'data': 'about page'}
 
