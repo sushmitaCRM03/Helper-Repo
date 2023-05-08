@@ -17,7 +17,7 @@ g = Github(args.token)
 repo = g.get_repo(args.repo)
 print(repo)
 # Get the pull request object
-pr = repo.get_pull(args.pr)
+pr = repo.get_pull(args.pr)  
 print(pr)
 # Get the head branch of the pull request
 head_branch = pr.head.ref
