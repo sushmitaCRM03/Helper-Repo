@@ -15,7 +15,7 @@ def create(request: schemas.Blog):
 def show(id: int):
     # fetch blog with id = id
     return {'data': id}
-# dummy test for pr  
+# dummy test for pr 2
 @app.get('/blog/{id}')
 def show(id: int):
     # fetch blog with id = id

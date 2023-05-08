@@ -17,7 +17,7 @@ def name(): #this is called as 'path operation function'
 
 @app.get('/about')    
 def about():
-    return {'data': 'about page'}
+    return {'data': 'about page'} #returning a dictionary
 
 #path parameters
 # we can have multiple path parameters
