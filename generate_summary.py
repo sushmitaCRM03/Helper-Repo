@@ -2,7 +2,6 @@ import argparse
 from github import Github
 import base64
 import os
-from fastapi import FastAPI
 from pydantic import BaseModel
 import openai
 import json
