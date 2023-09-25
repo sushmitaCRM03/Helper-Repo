@@ -19,6 +19,7 @@ parser.add_argument('--branch', type=str, help='GitHub branch name')
 parser.add_argument('--pr', type=int, help='GitHub pull request number') 
 args = parser.parse_args()
 
+
 # Initialize PyGithub client with the token ggh
 g = Github(args.token)
 
@@ -62,6 +63,8 @@ async def get_completion(prompt, model="gpt-3.5-turbo"):
     )
     return response.choices[0].message["content"]
     
+async def sum_of_series(n):
+    return n * (n + 1) / 2
 
 async def generate_text():
     result = get_jira_ticket_details()
