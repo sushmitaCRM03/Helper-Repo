@@ -67,12 +67,12 @@ async def sum_of_series(n):
     return n * (n + 1) / 2
 
 async def generate_text():
-    result = get_jira_ticket_details()
+    result = get_jira_ticket_detail()
     # add prompt to the result
     # convert the result to a string
     result = str(result)
     prompt = """
-        using the bug description and analyzing bug fix code given below pls create a 200 words confluence documentation content \
+        using the  bug fix code given below pls create a 200 words confluence documentation content \
 
         1. description """ + result + """ bugfix code """ + decoded_content + """
 
@@ -84,19 +84,19 @@ async def generate_text():
     print (response)
 
 
-def get_jira_ticket_details():
-    url =  "https://noniking0302.atlassian.net/rest/api/3/issue/GP-51"
+def get_jira_ticket_detail():
+    url =  'https://noniking0302.atlassian.net/rest/api/3/issue/GP-51'
     auth_header = "Basic " + base64.b64encode((username + ":" + password).encode("utf-8")).decode("utf-8")
     headers = {
-        "Authorization": auth_header,
-        "Content-Type": "application/json"
+        "Authorization":  auth_header,
+        "Content-Type":  "application/json"
     }
 
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        ticket_data = response.json()
-        description = ticket_data.get("fields", {}).get("description", {}).get("content", [])
-        print(description)
+    response = requests.get (url, headers=headers)
+    if response.status_code ==  200:
+        ticket_data =  response.json()
+        description =  ticket_data.get("fields", {}).get("description", {}).get("content", [])
+      
         return description
     else:
         print("Failed to retrieve ticket details. Status code:", response.status_code)
