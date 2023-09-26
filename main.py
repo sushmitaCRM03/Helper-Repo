@@ -36,33 +36,34 @@ def unpublished():
 #so fastapi run one by one and match the path
 # so here we can exchange or order of the path, we have to move this type of route before all dynamic routes
 
-@app.get('blog/{id}/comments')
+@app.get ('blog/{id}/comments')
 def comments(id):
     # fetch comments of blog with id = id
-    return {'data': {'1', '2'}}
+    return  {'data': {'1', '2'}}
 
 #query parameters
-@app.get('/blog') #query parameter
+@app.get ('/blog') #query parameter
 def index(limit: int = 10, published: bool = True, sort: Optional[str] = None):
     # only get 10 published blogs
     #http://127.0.0.1:8000/blog?limit=34&published=false
     if published:
-        return {'data': f'{limit} published blogs from the db'}
+        return  {'data': f'{limit} published blogs from the db'}
     else:
-        return {'data': f'{limit} blogs from the db'} #f string
+        return  {'data': f'{limit} blogs from the db'} #f string
 
 #mixing path and query parameters
-@app.get('/blog/com/{id}')
-def show(id: int, limit: int = 10):
+@app.get ('/blog/com/{id}')
+def show (id: int, limit: int = 10):
     # fetch blog with id = id
-    return {'data': {'id': id}}
+    return  {'data': {'id': id}}
 
 #request body
 #we need to use pydantic model to define the schema of the request body
 class Blog(BaseModel):
-    title: str
-    body: str
-    published: Optional[bool]
+    title:  str
+    body:  str
+    published:  Optional[bool]
+
 
 @app.post('/blog')
 def create_blog(request: Blog): #request is class object
