@@ -7,7 +7,7 @@ import json
 import base64
 import requests
 
-openai.api_key = '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'
+openai.api_key = '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
 # Usage
 username = "techsibsbusiness3@gmail.com"
 password = "ATATT3xFfGF0wbxiCkUkOwgYDEoMZOdUrNu8TnBIzopcbY8qqAXjs9Q0N6iaWLfIDcBUXDlXPL3gvsgVtQ6_djqiaca9EulIooJ4BAWMIx0gPvCvAdvpUzT0_4T9c2_OJbdqHFHSnGd3K9zn1y-yiBIsrCFJKR3m0l5ylqWRlKaP8EqWah6YMi8=2FDCC6F0"
@@ -60,7 +60,7 @@ async def get_completion(prompt, model="gpt-3.5-turbo"):
         messages=messages,
         temperature=0,  # Degree of randomness of the model's output
     )
-    return response.choices[0].message["content"]
+  
     
 
 async def generate_text():
